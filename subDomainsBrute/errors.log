@@ -1,0 +1,1 @@
+<function currentThread at 0x1006fd230> [<type 'exceptions.AttributeError'>] admin.cd 'GenericRdata' object has no attribute 'target'

@@ -1,0 +1,2 @@
+www.baiu.com                  	222.76.218.234
+localhost.baiu.com            	127.0.0.6

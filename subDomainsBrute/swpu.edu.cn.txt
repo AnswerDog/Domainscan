@@ -1,0 +1,7 @@
+info.swpu.edu.cn              	210.41.240.8
+bbs.swpu.edu.cn               	210.41.240.101
+dj.swpu.edu.cn                	210.41.240.200
+portal.swpu.edu.cn            	210.41.241.151
+lab.swpu.edu.cn               	210.41.240.130
+res.swpu.edu.cn               	210.41.240.145
+el.swpu.edu.cn                	210.41.240.169
