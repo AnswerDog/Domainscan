@@ -30,7 +30,7 @@ class Ilinks(object):
 
             return list(set(self.subset))
         except Exception as e:
-            logging.info(str(e))
+            print str(e)
             return self.subset
 
 # ilinks = Ilinks('aliyun.com')

@@ -16,11 +16,6 @@ import optparse
 import random
 from lib.consle_width import getTerminalSize
 
-class xxx:
-    def __init__(self):
-        self.full_scan='full_scan'
-        self.i='i'
-        self.output=''
 class SubNameBrute:
     def __init__(self, target, options):
         self.target = target.strip()
@@ -42,7 +37,7 @@ class SubNameBrute:
         if options.output:
             outfile = options.output
         else:
-            outfile = target + '.txt' if not options.full_scan else target + '_full.txt'
+            outfile = target + '_subbrute.txt' if not options.full_scan else target + '_subbrute.txt'
         self.outfile = open(outfile, 'w')
         self.ip_dict = {}
         self.sub_timeout_count = {}
@@ -223,6 +218,7 @@ class SubNameBrute:
                     cur_sub_domain = sub + '.' + self.target
                     self._update_scan_count()
                     self.msg_queue.put('status')
+                    #print cur_sub_domain+":"+str(thread_id)
                     answers = self.resolvers[thread_id].query(cur_sub_domain)
                     is_wildcard_record = False
                     if answers:
@@ -246,9 +242,10 @@ class SubNameBrute:
                             self.result.append(cur_sub_domain)
                             self.outfile.write(cur_sub_domain.ljust(30) + '\t' + ips + '\n')
                             self.outfile.flush()
-
                             try:
-                                d.resolvers[thread_id].query('lijiejietest.' + cur_sub_domain)
+                                print "lijiejie"+thread_id
+                                self.resolvers[thread_id].query('lijiejietest.' + cur_sub_domain)
+
                             except dns.resolver.NXDOMAIN, e:
                                 _lst = []
                                 if_put_one = (self.queue.qsize() < self.dns_count * 2)
@@ -295,7 +292,7 @@ class SubNameBrute:
 
     def run(self):
         self.start_time = time.time()
-        for i in range(self.dns_count):
+        for i in range(800):
             try:
                 t = threading.Thread(target=self._scan, name=str(i))
                 t.setDaemon(True)
@@ -328,7 +325,7 @@ if __name__ == '__main__':
         parser.print_help()
         sys.exit(0)
     m = xxx()
-    d = SubNameBrute(target='baiu.com', options=m)
+    d = SubNameBrute(target='swpu.edu.com', options=m)
     d.run()
     print d.result
     d.outfile.flush()

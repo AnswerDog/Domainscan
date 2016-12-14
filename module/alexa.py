@@ -4,6 +4,7 @@ import re
 import time
 import logging
 from common import http_request_get, http_request_post, is_domain
+
 class Alexa(object):
     """docstring for Alexa"""
     def __init__(self, domain):

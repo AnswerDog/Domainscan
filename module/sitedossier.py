@@ -20,6 +20,7 @@ class Sitedossier(object):
 
     def run(self):
         try:
+            print "start"
             url = 'http://www.sitedossier.com/parentdomain/{0}'.format(self.domain)
             r = self.get_content(url)
             self.parser(r)
@@ -82,9 +83,10 @@ class Sitedossier(object):
         else:
             return None
 
-    def __str__(self):
+    '''def __str__(self):
         handler = lambda e: str(e)
-        return json.dumps(self, indent=2, default=handler)
+        return json.dumps(self, indent=2, default=handler)'''
+
 
 
 
