@@ -57,11 +57,16 @@ class Domainscan:
                 outfile = options.output
             else:
                 outfile = self.domain + '_all.txt' if not options.full_scan else self.domain + '_all.txt'
+                outhtml = self.domain + '_all.html' if not options.full_scan else self.domain + '_all.html'
             self.outfile = open(outfile, 'w')
+            self.outhtml = open(outhtml, 'w')
             for _list in list:
                 self.outfile.write(_list+'\n')
+                self.outhtml.write("<a href=http://"+_list+">"+_list+"</a></br>"+'\n')
+                self.outhtml.flush()
                 self.outfile.flush()
             self.outfile.close()
+            self.outhtml.close()
         except Exception as e:
             return self.subset
 
