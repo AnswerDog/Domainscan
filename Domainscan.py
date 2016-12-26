@@ -10,6 +10,7 @@ from module.chaxunla import Chaxunla
 from module.googlect import TransparencyReport
 from itertools import chain
 from subDomainsBrute.subDomainsBrute import SubNameBrute
+import dns.resolver
 import optparse
 import sys
 class Domainscan:
@@ -20,6 +21,7 @@ class Domainscan:
 
     def run(self):
         list = []
+        list_ = []
         try:
             print "start Alexa"
             list1 = Alexa(domain=self.domain).run()
@@ -48,11 +50,20 @@ class Domainscan:
             print "list10 start"
             list9 = SubNameBrute(target=self.domain,options=self.options).run()
             print list9
-            _ = chain(list1,list2,list3,list4,list5,list6,list7,list8,list9)
+            _ = chain(list1,list2,list3,list4,list5,list6,list7,list8)
 
             for i in _:
-                if i not in list:
-                    list.append(i)
+                if i not in list_:
+                    try:
+                        answer=dns.resolver.query(i)
+                        if answer:
+                            print answer[0]
+                            list_.append(i)
+                    except:
+                        pass
+            for j in list_:
+                if j not in list9:
+                    list9.append(j)
             if self.options.output:
                 outfile = options.output
             else:
@@ -60,9 +71,9 @@ class Domainscan:
                 outhtml = self.domain + '_all.html' if not options.full_scan else self.domain + '_all.html'
             self.outfile = open(outfile, 'w')
             self.outhtml = open(outhtml, 'w')
-            for _list in list:
+            for _list in list9:
                 self.outfile.write(_list+'\n')
-                self.outhtml.write("<a href=http://"+_list+">"+_list+"</a></br>"+'\n')
+                self.outhtml.write("<a href=http://"+_list+' target="_blank">'+_list +"</a></br>"+'\n')
                 self.outhtml.flush()
                 self.outfile.flush()
             self.outfile.close()

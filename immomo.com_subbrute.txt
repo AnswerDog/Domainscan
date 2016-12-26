@@ -1,0 +1,30 @@
+passport.immomo.com           	58.83.184.21
+vip.immomo.com                	58.83.184.21
+hello.immomo.com              	125.39.3.153
+img.immomo.com                	182.140.130.25
+m.immomo.com                  	58.83.184.21
+pc.immomo.com                 	58.83.184.19
+mail.immomo.com               	124.251.45.56
+pay.immomo.com                	58.83.184.18
+www.immomo.com                	124.251.45.68
+developer.immomo.com          	58.83.184.22
+live.immomo.com               	58.83.184.19
+open.immomo.com               	58.83.184.21
+dl.immomo.com                 	182.140.142.51, 182.140.147.49, 182.140.147.50
+account.immomo.com            	58.83.184.11
+web.immomo.com                	58.83.184.19
+sec.immomo.com                	211.152.99.13
+bm.immomo.com                 	58.83.184.21
+et.immomo.com                 	182.140.130.25, 61.188.191.72, 61.188.191.85
+smtp.immomo.com               	124.251.45.56
+ldap.immomo.com               	10.83.40.10
+ssl.immomo.com                	211.151.193.188
+nb.immomo.com                 	58.83.184.21
+bi.immomo.com                 	58.83.184.22
+tech.immomo.com               	58.83.197.48
+dls.immomo.com                	182.140.142.51, 182.140.147.49, 182.140.147.50
+ext.immomo.com                	103.235.221.11
+api.immomo.com                	103.235.221.11
+chat.immomo.com               	211.152.99.13
+hk.immomo.com                 	120.132.144.74
+mk.immomo.com                 	103.235.221.11
